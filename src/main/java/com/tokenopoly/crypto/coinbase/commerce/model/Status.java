@@ -2,11 +2,11 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.datavolo.crypto.coinbase.commerce.model;
+package com.tokenopoly.crypto.coinbase.commerce.model;
 
 import com.google.common.collect.ComparisonChain;
 
-import com.datavolo.util.CompareUtil;
+import com.tokenopoly.util.CompareUtil;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
