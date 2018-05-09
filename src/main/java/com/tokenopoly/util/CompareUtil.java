@@ -2,7 +2,7 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.datavolo.util;
+package com.tokenopoly.util;
 
 import java.util.Comparator;
 import java.util.Date;

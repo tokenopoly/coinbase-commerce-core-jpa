@@ -2,7 +2,7 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.datavolo.crypto.coinbase.commerce.util;
+package com.tokenopoly.crypto.coinbase.commerce.util;
 
 import com.google.common.io.BaseEncoding;
 
