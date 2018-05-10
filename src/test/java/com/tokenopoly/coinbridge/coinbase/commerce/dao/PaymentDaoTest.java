@@ -40,7 +40,7 @@ import static org.junit.Assert.assertTrue;
 public class PaymentDaoTest {
 
     @Autowired
-    private TestPaymentDao dao;
+    private PaymentDao dao;
 
     private PaymentPK paymentId;
     private Payment payment;

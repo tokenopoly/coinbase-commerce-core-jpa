@@ -12,6 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  *
  */
-public interface TestPaymentDao extends JpaRepository<Payment, PaymentPK> {
+@SuppressWarnings("WeakerAccess")
+public interface PaymentDao extends JpaRepository<Payment, PaymentPK> {
 
 }

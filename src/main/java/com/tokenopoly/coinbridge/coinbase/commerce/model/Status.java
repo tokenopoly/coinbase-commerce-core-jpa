@@ -30,6 +30,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Embeddable
+@SuppressWarnings("unused")
 public class Status implements Serializable, Comparable<Status> {
 
     public static final Comparator<StatusValue> StatusNaturalNullsLast =
@@ -45,8 +46,9 @@ public class Status implements Serializable, Comparable<Status> {
     @Enumerated(EnumType.STRING)
     private ContextValue context;
 
-    private PaymentPK payment;     // TODO : database fix
+    private PaymentPK payment;
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(@NotNull Status o) {
         return ComparisonChain.start()

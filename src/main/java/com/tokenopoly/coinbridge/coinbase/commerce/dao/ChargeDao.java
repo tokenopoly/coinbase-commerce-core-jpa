@@ -11,6 +11,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  *
  */
-public interface TestChargeDao extends JpaRepository<Charge, String> {
+@SuppressWarnings("WeakerAccess")
+public interface ChargeDao extends JpaRepository<Charge, String> {
 
 }

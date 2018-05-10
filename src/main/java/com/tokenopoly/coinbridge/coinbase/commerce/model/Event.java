@@ -19,6 +19,7 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(of = {"id"})
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@SuppressWarnings("unused")
 public class Event implements Serializable {
 
     public static final String Charge_Type_Prefix = "charge:";
@@ -30,7 +31,7 @@ public class Event implements Serializable {
     private Charge data;
 
     public EventType getEventType() {
-        if (type != null && type.toLowerCase().startsWith(Charge_Type_Prefix)) {
+        if ((type != null) && type.toLowerCase().startsWith(Charge_Type_Prefix)) {
             return EventType.valueOf(type.toLowerCase().substring(Charge_Type_Prefix.length()));
         } else {
             return null;

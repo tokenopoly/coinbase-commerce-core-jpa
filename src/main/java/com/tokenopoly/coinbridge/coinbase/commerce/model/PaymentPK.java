@@ -40,10 +40,12 @@ public class PaymentPK implements PaymentIdentifier, Comparable<PaymentIdentifie
     private String network;
     private String transactionId;
 
+    @SuppressWarnings("unused")
     public static PaymentPK newPaymentId(PaymentIdentifier payment) {
         return new PaymentPK(payment.getNetwork(), payment.getTransactionId());
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(PaymentIdentifier o) {
         return ComparisonChain.start()

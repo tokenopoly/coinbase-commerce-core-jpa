@@ -29,7 +29,7 @@ import static org.junit.Assert.assertEquals;
 public class ChargeDaoTest {
 
     @Autowired
-    private TestChargeDao dao;
+    private ChargeDao dao;
 
     private WebhookTest webhookTest = new WebhookTest();
 

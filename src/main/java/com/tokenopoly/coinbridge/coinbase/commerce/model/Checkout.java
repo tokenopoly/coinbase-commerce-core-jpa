@@ -23,6 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@SuppressWarnings("WeakerAccess")
 public class Checkout implements Serializable {
 
     private static final long serialVersionUID = 4136748974630732575L;
