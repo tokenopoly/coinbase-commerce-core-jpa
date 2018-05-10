@@ -2,7 +2,7 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.tokenopoly.crypto.coinbase.commerce.model;
+package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -13,6 +13,7 @@ import org.hibernate.annotations.FetchMode;
 import org.hibernate.annotations.SelectBeforeUpdate;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 import javax.persistence.CollectionTable;
@@ -28,15 +29,20 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  *
  */
 @Data
+@NoArgsConstructor
 @EqualsAndHashCode(of = {"network", "transactionId"})
+
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+
 @Entity
 @Table(schema = "coinbase")
 @IdClass(PaymentPK.class)
@@ -45,6 +51,15 @@ import lombok.EqualsAndHashCode;
 public class Payment implements PaymentIdentifier, Serializable {
 
     private static final long serialVersionUID = -5853451019519546806L;
+
+    @Builder
+    public Payment(PaymentPK paymentId, Status.StatusValue status, Map<String, Price> value, Block block) {
+        this.network = paymentId == null ? null : paymentId.getNetwork();
+        this.transactionId = paymentId == null ? null : paymentId.getTransactionId();
+        this.status = status;
+        this.value = (value == null) ? new HashMap<>() : value;
+        this.block = block;
+    }
 
     @Id
     private String network;

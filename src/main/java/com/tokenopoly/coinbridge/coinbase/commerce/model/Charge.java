@@ -2,7 +2,7 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.tokenopoly.crypto.coinbase.commerce.model;
+package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.google.common.collect.ComparisonChain;
 
@@ -63,6 +63,7 @@ public class Charge implements Serializable, Comparable<Charge> {
     private String description;
     private String logoUrl;
     private String hostedUrl;
+    private String redirectUrl;
 
     private Date createdAt;
     private Date expiresAt;

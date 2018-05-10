@@ -2,7 +2,7 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.tokenopoly.crypto.coinbase.commerce.util;
+package com.tokenopoly.coinbridge.coinbase.commerce.util;
 
 import com.google.common.io.BaseEncoding;
 
@@ -49,7 +49,7 @@ public class Coinbase {
                 return true;
             } else {
                 if (withLogging) {
-                    log.warn("Header signature is null but message is not null: {}", message);
+                    log.warn("Header signature is null but message is {}", message);
                 }
                 return false;
             }

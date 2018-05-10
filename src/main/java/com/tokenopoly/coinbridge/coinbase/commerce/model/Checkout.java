@@ -2,13 +2,13 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.tokenopoly.crypto.coinbase.commerce.model;
+package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Nonnull;
 
@@ -23,16 +23,22 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
-public class Webhook implements Serializable {
+public class Checkout implements Serializable {
 
-    private static final long serialVersionUID = -367624435630683620L;
+    private static final long serialVersionUID = 4136748974630732575L;
 
     @Nonnull
     private String id;
 
-    @Nonnull
-    private Date scheduledFor;
+    private String name;
 
-    private Event event;
+    private String description;
 
+    private String logoUrl;
+
+    private List<String> requestedInfo;
+
+    private String pricingType;
+
+    private Price localPrice;
 }

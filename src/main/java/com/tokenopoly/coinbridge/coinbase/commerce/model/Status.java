@@ -2,7 +2,7 @@
  * Copyright (c) 2018. DataVolo, Inc.
  */
 
-package com.tokenopoly.crypto.coinbase.commerce.model;
+package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.google.common.collect.ComparisonChain;
 
@@ -45,12 +45,15 @@ public class Status implements Serializable, Comparable<Status> {
     @Enumerated(EnumType.STRING)
     private ContextValue context;
 
+    private PaymentPK payment;     // TODO : database fix
+
     @Override
     public int compareTo(@NotNull Status o) {
         return ComparisonChain.start()
             .compare(this.time, o.time, CompareUtil.DateNaturalNullsLast)
             .compare(this.status, o.status, StatusNaturalNullsLast)
             .compare(this.context, o.context, ContextNaturalNullsLast)
+            .compare(this.payment, o.payment, PaymentPK.PaymentPKNaturalNullsLast)
             .result();
     }
 

@@ -1,5 +1,6 @@
 
 application-dev.properties
+flyway-dev.conf
 
 coinbase-commerce-core.iml
 ccc.iml
