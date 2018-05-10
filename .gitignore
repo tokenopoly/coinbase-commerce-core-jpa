@@ -1,6 +1,7 @@
 
 application-dev.properties
 
+coinbase-commerce-core.iml
 ccc.iml
 
 ### Windows template

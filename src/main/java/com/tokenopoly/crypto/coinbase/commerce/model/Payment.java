@@ -39,10 +39,10 @@ import lombok.EqualsAndHashCode;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 @Entity
 @Table(schema = "coinbase")
-@IdClass(PaymentId.class)
+@IdClass(PaymentPK.class)
 @DynamicUpdate
 @SelectBeforeUpdate
-public class Payment implements IPaymentId, Serializable {
+public class Payment implements PaymentIdentifier, Serializable {
 
     private static final long serialVersionUID = -5853451019519546806L;
 

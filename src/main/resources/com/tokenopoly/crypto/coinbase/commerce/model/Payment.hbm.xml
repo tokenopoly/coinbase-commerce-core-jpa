@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Copyright (c) 2018. DataVolo, Inc.
+  -->
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+  <class name="com.tokenopoly.crypto.coinbase.commerce.model.Payment"
+         table="payment" schema="coinbase" catalog="coinage-dev">
+    <composite-id mapped="true" class="com.tokenopoly.crypto.coinbase.commerce.model.PaymentPK">
+      <key-property name="network">
+        <column name="network" sql-type="varchar"/>
+      </key-property>
+      <key-property name="transactionId">
+        <column name="transaction_id" sql-type="varchar"/>
+      </key-property>
+    </composite-id>
+
+    <property name="status">
+      <column name="status" sql-type="varchar" not-null="true"/>
+    </property>
+
+    <map name="value"
+         table="payment_values" schema="coinbase" catalog="coinage-dev"
+         lazy="false"
+         inverse="false"
+         cascade="all"
+         fetch="join"
+    >
+      <key>
+        <column name="network" sql-type="varchar"/>
+        <column name="transaction_id" sql-type="varchar"/>
+      </key>
+      <map-key type="java.lang.String" column="type"/>
+      <composite-element class="com.tokenopoly.crypto.coinbase.commerce.model.Price">
+        <property name="amount">
+          <column name="amount" sql-type="numeric(24,6)" precision="24" scale="6" not-null="true"/>
+        </property>
+        <property name="currency">
+          <column name="currency" sql-type="varchar" not-null="true"/>
+        </property>
+      </composite-element>
+    </map>
+
+    <component name="block" class="com.tokenopoly.crypto.coinbase.commerce.model.Block">
+      <property name="confirmationsAccumulated">
+        <column name="confirmations_accumulated" sql-type="bigint"/>
+      </property>
+      <property name="confirmationsRequired">
+        <column name="confirmations_required" sql-type="bigint"/>
+      </property>
+      <property name="hash">
+        <column name="hash" sql-type="varchar" not-null="true"/>
+      </property>
+      <property name="height">
+        <column name="height" sql-type="bigint"/>
+      </property>
+    </component>
+
+  </class>
+</hibernate-mapping>

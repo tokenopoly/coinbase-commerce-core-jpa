@@ -23,14 +23,14 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @Embeddable
-public class PaymentId implements IPaymentId, Serializable {
+public class PaymentPK implements PaymentIdentifier, Serializable {
 
     private static final long serialVersionUID = 6917567371063229215L;
     private String network;
     private String transactionId;
 
-    public static PaymentId newPaymentId(IPaymentId payment) {
-        return new PaymentId(payment.getNetwork(), payment.getTransactionId());
+    public static PaymentPK newPaymentId(PaymentIdentifier payment) {
+        return new PaymentPK(payment.getNetwork(), payment.getTransactionId());
     }
 
 }

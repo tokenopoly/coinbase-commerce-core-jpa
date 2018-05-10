@@ -7,7 +7,7 @@ package com.tokenopoly.crypto.coinbase.commerce.model;
 /**
  *
  */
-public interface IPaymentId {
+public interface PaymentIdentifier {
 
     String getNetwork();
 
