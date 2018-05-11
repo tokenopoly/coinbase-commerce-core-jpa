@@ -164,6 +164,7 @@
           <excludes>
             <exclude>db/**</exclude>
             <exclude>config/**</exclude>
+            <exclude>**/*.xml.x</exclude>
           </excludes>
         </configuration>
       </plugin>

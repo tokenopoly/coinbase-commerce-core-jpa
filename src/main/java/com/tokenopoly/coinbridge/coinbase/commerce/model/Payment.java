@@ -52,6 +52,9 @@ public class Payment implements PaymentIdentifier, Serializable {
 
     private static final long serialVersionUID = -5853451019519546806L;
 
+    public static final String LOCAL_VALUE_KEY = "local";
+    public static final String CRYPTO_VALUE_KEY = "crypto";
+
     @Builder
     public Payment(PaymentPK paymentId, Status.StatusValue status, Map<String, Price> value, Block block) {
         this.network = paymentId == null ? null : paymentId.getNetwork();

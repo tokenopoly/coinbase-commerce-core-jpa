@@ -10,7 +10,8 @@ import java.util.Date;
 /**
  *
  */
-public abstract class CompareUtil {
+@SuppressWarnings("unused")
+public abstract class CompareUtils {
 
     public static final Comparator<String> StringNaturalNullsLast = Comparator.nullsLast(Comparator.naturalOrder());
 

@@ -8,7 +8,7 @@ import com.google.common.collect.ComparisonChain;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import com.tokenopoly.util.CompareUtil;
+import com.tokenopoly.util.CompareUtils;
 
 import java.io.Serializable;
 import java.util.Comparator;
@@ -49,8 +49,8 @@ public class PaymentPK implements PaymentIdentifier, Comparable<PaymentIdentifie
     @Override
     public int compareTo(PaymentIdentifier o) {
         return ComparisonChain.start()
-            .compare(this.network, o.getNetwork(), CompareUtil.StringNaturalNullsLast)
-            .compare(this.transactionId, o.getTransactionId(), CompareUtil.StringNaturalNullsLast)
+            .compare(this.network, o.getNetwork(), CompareUtils.StringNaturalNullsLast)
+            .compare(this.transactionId, o.getTransactionId(), CompareUtils.StringNaturalNullsLast)
             .result();
     }
 }

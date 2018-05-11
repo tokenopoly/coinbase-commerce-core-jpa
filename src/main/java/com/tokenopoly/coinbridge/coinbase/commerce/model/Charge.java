@@ -6,7 +6,7 @@ package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.google.common.collect.ComparisonChain;
 
-import com.tokenopoly.util.CompareUtil;
+import com.tokenopoly.util.CompareUtils;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -114,14 +114,14 @@ public class Charge implements Serializable, Comparable<Charge> {
     @Override
     public int compareTo(@NotNull Charge o) {
         return ComparisonChain.start()
-            .compare(this.confirmedAt, o.confirmedAt, CompareUtil.DateNaturalNullsLast)
-            .compare(this.expiresAt, o.expiresAt, CompareUtil.DateNaturalNullsLast)
-            .compare(this.createdAt, o.createdAt, CompareUtil.DateNaturalNullsLast)
+            .compare(this.confirmedAt, o.confirmedAt, CompareUtils.DateNaturalNullsLast)
+            .compare(this.expiresAt, o.expiresAt, CompareUtils.DateNaturalNullsLast)
+            .compare(this.createdAt, o.createdAt, CompareUtils.DateNaturalNullsLast)
 
             // If we need we can do this in separate steps: if we don't have an ordering here,
             // then take the most recent Status records for each Charge and use those.
 
-            .compare(this.code, o.code, CompareUtil.StringNaturalNullsLast)
+            .compare(this.code, o.code, CompareUtils.StringNaturalNullsLast)
             .result();
     }
 

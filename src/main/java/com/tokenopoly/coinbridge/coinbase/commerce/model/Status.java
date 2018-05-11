@@ -6,7 +6,7 @@ package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.google.common.collect.ComparisonChain;
 
-import com.tokenopoly.util.CompareUtil;
+import com.tokenopoly.util.CompareUtils;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
@@ -52,7 +52,7 @@ public class Status implements Serializable, Comparable<Status> {
     @Override
     public int compareTo(@NotNull Status o) {
         return ComparisonChain.start()
-            .compare(this.time, o.time, CompareUtil.DateNaturalNullsLast)
+            .compare(this.time, o.time, CompareUtils.DateNaturalNullsLast)
             .compare(this.status, o.status, StatusNaturalNullsLast)
             .compare(this.context, o.context, ContextNaturalNullsLast)
             .compare(this.payment, o.payment, PaymentPK.PaymentPKNaturalNullsLast)

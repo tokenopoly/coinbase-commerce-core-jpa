@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @SuppressWarnings("WeakerAccess")
-public class Coinbase {
+public class CoinbaseUtils {
 
     private static final String SIGNING_ALGORITHM = "HmacSHA256";
     private static final Charset UTF8 = Charset.forName("UTF8");
@@ -28,7 +28,7 @@ public class Coinbase {
     private final Mac sha256Hmac;
     private final BaseEncoding signatureEncoding;
 
-    public Coinbase(String sharedSecret) throws NoSuchAlgorithmException, InvalidKeyException {
+    public CoinbaseUtils(String sharedSecret) throws NoSuchAlgorithmException, InvalidKeyException {
         final SecretKeySpec secretKey = new SecretKeySpec(sharedSecret.getBytes(UTF8), SIGNING_ALGORITHM);
         this.sha256Hmac = Mac.getInstance(SIGNING_ALGORITHM);
         sha256Hmac.init(secretKey);
