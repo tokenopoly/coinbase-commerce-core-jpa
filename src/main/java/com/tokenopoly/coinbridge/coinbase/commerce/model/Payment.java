@@ -28,6 +28,7 @@ import javax.persistence.IdClass;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Builder;
 import lombok.Data;
@@ -84,4 +85,11 @@ public class Payment implements PaymentIdentifier, Serializable {
     @Embedded
     private Block block;
 
+    @Transient
+    public Price getLocalPrice() {
+        return (value != null && value.containsKey(Payment.LOCAL_VALUE_KEY))
+               ? value.get(Payment.LOCAL_VALUE_KEY)
+               : null;
+    }
+    
 }
