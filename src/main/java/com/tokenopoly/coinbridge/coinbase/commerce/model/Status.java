@@ -55,7 +55,7 @@ public class Status implements Serializable, Comparable<Status> {
             .compare(this.time, o.time, CompareUtils.DateNaturalNullsLast)
             .compare(this.status, o.status, StatusNaturalNullsLast)
             .compare(this.context, o.context, ContextNaturalNullsLast)
-            .compare(this.payment, o.payment, PaymentPK.PaymentPKNaturalNullsLast)
+            .compare(this.payment, o.payment, PaymentIdentifier.PaymentIdentifierNaturalNullsLast)
             .result();
     }
 
