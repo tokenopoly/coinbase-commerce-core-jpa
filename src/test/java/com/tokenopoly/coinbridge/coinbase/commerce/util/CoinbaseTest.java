@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2018. DataVolo, Inc.
+ * Copyright (c) 2018  Tokenopoly Financial Technology Inc.
+ * All rights not explicitly granted in the LICENSE attached to this project are hereby reserved.
  */
 
 package com.tokenopoly.coinbridge.coinbase.commerce.util;
