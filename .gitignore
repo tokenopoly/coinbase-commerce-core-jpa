@@ -1,4 +1,6 @@
 
+*.xml.x
+
 application-dev.properties
 flyway-dev.conf
 
