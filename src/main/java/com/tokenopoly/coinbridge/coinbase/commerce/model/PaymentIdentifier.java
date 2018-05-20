@@ -12,7 +12,7 @@ import com.tokenopoly.util.CompareUtils;
 import java.util.Comparator;
 
 /**
- *
+ * This interface allows us to generalize the information needed to uniquely identify a payment.
  */
 public interface PaymentIdentifier extends Comparable<PaymentIdentifier> {
 

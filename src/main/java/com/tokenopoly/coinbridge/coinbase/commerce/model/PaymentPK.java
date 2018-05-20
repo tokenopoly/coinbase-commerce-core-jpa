@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * The concrete implementation of {@link PaymentIdentifier} for persistence purposes.
  */
 @Data
 @NoArgsConstructor

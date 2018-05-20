@@ -33,12 +33,13 @@ import lombok.NoArgsConstructor;
 @Embeddable
 @SuppressWarnings("unused")
 public class Status implements Serializable, Comparable<Status> {
+    private static final long serialVersionUID = 656845959161022248L;
 
     public static final Comparator<StatusValue> StatusNaturalNullsLast =
         Comparator.nullsLast(Comparator.naturalOrder());
     public static final Comparator<ContextValue> ContextNaturalNullsLast =
         Comparator.nullsLast(Comparator.naturalOrder());
-    private static final long serialVersionUID = 656845959161022248L;
+
     @Nonnull
     private Date time;
     @Nonnull

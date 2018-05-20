@@ -18,7 +18,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * Simple Price object which represents a price (or payment) in a currency.
  */
 @Data
 @NoArgsConstructor

@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * The entrance-point object for handling Coinbase Commerce webhook callbacks.
  */
 @Data
 @NoArgsConstructor
@@ -34,8 +34,15 @@ public class Webhook implements Serializable {
     @Nonnull
     private Date scheduledFor;
 
+    /**
+     * Coinbase keeps repeatedly tries to deliver the {@link Event}, incrementing this counter
+     * with each attempt.
+     */
     private Integer attemptNumber;
 
+    /**
+     * The primary payload of this webhook callback.
+     */
     private Event event;
 
 }

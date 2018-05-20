@@ -19,14 +19,18 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * Attributes of a Payment that correspond to the blockchain Block in which the payment transaction is recorded.
  */
+// Lombok annotation(s)
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 
+// Jackson annotation(s)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+
+// Hibernate & JPA annotation(s)
 @Embeddable
 public class Block implements Serializable {
 

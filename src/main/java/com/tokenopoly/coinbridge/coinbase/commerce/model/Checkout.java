@@ -18,7 +18,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 /**
- *
+ * Models a Checkout to handle the case where a {@link Charge} was created from one.
  */
 @Data
 @NoArgsConstructor

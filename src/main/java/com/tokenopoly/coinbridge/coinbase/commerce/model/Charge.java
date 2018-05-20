@@ -44,13 +44,22 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
- *
+ * Represents a Coinbase Commerce Charge object, per that API.
+ * <p>
+ *     Charges are the first of the API objects (counting hierarchically) that are treated
+ *     as entities to support persistence of state.
+ * </p>
  */
+// Lombok annotation(s)
 @Data
 @EqualsAndHashCode(of = {"code"})
+
+// Jackson annotation(s)
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+
+// Hibernate & JPA annotation(s)
 @Entity
-@Table(schema = "coinbase")
+@Table(schema = "coinbase")  // TODO : replace me with .hbm.xml file(s)
 @DynamicUpdate
 @SelectBeforeUpdate
 public class Charge implements Serializable, Comparable<Charge> {
@@ -70,6 +79,16 @@ public class Charge implements Serializable, Comparable<Charge> {
     private Date expiresAt;
     private Date confirmedAt;
 
+    /**
+     * Some Charge instances were created from a Checkout. Others may have been created directly via
+     * the Coinbase Commerce API.
+     * <p>
+     *     Marked as {@code @Transient} as we don't persist that part of the context.
+     *     The intention with persistence is to be able to process Charges, in particular against invoices,
+     *     and not to persist the entire state and context of the corresponding Coinbase account -
+     *     Coinbase does that already.
+     * </p>
+     */
     @Transient
     private Checkout checkout;
 

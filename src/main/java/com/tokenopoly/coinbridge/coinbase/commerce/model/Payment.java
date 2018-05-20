@@ -50,6 +50,8 @@ import lombok.NoArgsConstructor;
 @IdClass(PaymentPK.class)
 @DynamicUpdate
 @SelectBeforeUpdate
+
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class Payment implements PaymentIdentifier, Serializable {
 
     private static final long serialVersionUID = -5853451019519546806L;
@@ -87,10 +89,20 @@ public class Payment implements PaymentIdentifier, Serializable {
     private Block block;
 
     @Transient
-    public Price getLocalPrice() {
-        return (value != null && value.containsKey(Payment.LOCAL_VALUE_KEY))
-               ? value.get(Payment.LOCAL_VALUE_KEY)
+    protected Price getPriceForKey(final String key) {
+        return (value != null && value.containsKey(key))
+               ? value.get(key)
                : null;
+    }
+
+    @Transient
+    public Price getLocalPrice() {
+        return getPriceForKey(LOCAL_VALUE_KEY);
+    }
+
+    @Transient
+    public Price getCryptoPrice() {
+        return getPriceForKey(CRYPTO_VALUE_KEY);
     }
     
 }
