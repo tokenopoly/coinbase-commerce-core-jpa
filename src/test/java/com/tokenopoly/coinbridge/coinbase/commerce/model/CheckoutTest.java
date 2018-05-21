@@ -46,6 +46,13 @@ public class CheckoutTest {
         assertTrue(checkingThisOut.getRequestedInfo().contains("email"));
         assertEquals("no_price", checkingThisOut.getPricingType());
         assertNull(checkingThisOut.getLocalPrice());
+
+        final Checkout c2 = new Checkout();
+
+        c2.setId(checkingThisOut.getId());
+        assertNotSame(checkingThisOut, c2);
+        assertEquals(checkingThisOut, c2);
+
     }
     
 }

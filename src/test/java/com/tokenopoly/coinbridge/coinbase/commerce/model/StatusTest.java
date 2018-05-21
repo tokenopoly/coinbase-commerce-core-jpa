@@ -23,6 +23,10 @@ public class StatusTest {
 
         assertNotSame(s1, s2);
 
+        final Status s3 = s1;
+        assertEquals(-1, s1.compareTo(null));
+        assertEquals(0, s1.compareTo(s3));
+
         final Date now = new Date();
         s1.setTime(now);
         s2.setTime(now);

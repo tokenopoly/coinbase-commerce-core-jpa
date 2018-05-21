@@ -52,6 +52,12 @@ public class WebhookTest {
         final Payment payment = payments.iterator().next();
         assertTrue("USD".equalsIgnoreCase(payment.getLocalPrice().getCurrency()));
         assertTrue("BTC".equalsIgnoreCase(payment.getCryptoPrice().getCurrency()));
+
+        final Event e2 = new Event();
+        assertNull(e2.getEventType());
+
+        assertNotSame(event, e2);
+        assertNotEquals(event, e2);
     }
 
 }

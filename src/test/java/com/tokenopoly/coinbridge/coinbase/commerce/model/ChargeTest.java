@@ -44,5 +44,14 @@ public class ChargeTest {
         c2.setCode("ABC");
         assertFalse(c1.compareTo(c2) < 0);
 
+
+        assertEquals(-1, c1.compareTo(null));
+        final Charge c3 = c1;
+        assertEquals(0, c1.compareTo(c3));
+
+        assertNotEquals(c1, c2);
+
+
+
     }
 }
