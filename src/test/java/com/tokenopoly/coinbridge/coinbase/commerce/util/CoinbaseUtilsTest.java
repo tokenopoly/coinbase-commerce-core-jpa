@@ -30,7 +30,7 @@ public class CoinbaseUtilsTest {
     public void isValidSignature() {
         assertTrue(coinbase.isValidSignature(null, null, true));
 
-        assertTrue(coinbase.isValidSignature("c497bf782d17eef1f0530d0572fb1d28cb441122925d5d4507f262f4b7874ff7",
+        assertTrue(coinbase.isValidSignature("045a4404c19d683c62b999ced95fab58c45ac95dfc85d262163120a133b9a3df",
                    payload, true));
 
         assertFalse(coinbase.isValidSignature("82837c799a2a99e1cd4865468af914b014fca5289f549803b899ca45b2a1ba63",
@@ -45,7 +45,7 @@ public class CoinbaseUtilsTest {
     public void isValidSignature1() {
         assertTrue(coinbase.isValidSignature(null, null));
 
-        assertTrue(coinbase.isValidSignature("c497bf782d17eef1f0530d0572fb1d28cb441122925d5d4507f262f4b7874ff7",
+        assertTrue(coinbase.isValidSignature("045a4404c19d683c62b999ced95fab58c45ac95dfc85d262163120a133b9a3df",
                                              payload));
 
         assertFalse(coinbase.isValidSignature("82837c799a2a99e1cd4865468af914b014fca5289f549803b899ca45b2a1ba63",
