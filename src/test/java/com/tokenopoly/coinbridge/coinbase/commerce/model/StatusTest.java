@@ -59,5 +59,7 @@ public class StatusTest {
         assertNotEquals(s1, s2);
         assertNotEquals(0, s1.compareTo(s2));
 
+
+
     }
 }

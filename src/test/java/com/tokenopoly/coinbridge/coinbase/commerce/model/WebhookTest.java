@@ -11,6 +11,7 @@ import com.tokenopoly.coinbridge.coinbase.commerce.util.CoinbaseUtilsTest;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
@@ -58,6 +59,13 @@ public class WebhookTest {
 
         assertNotSame(event, e2);
         assertNotEquals(event, e2);
+
+        final Webhook remade = new Webhook();
+        remade.setId(webhook.getId());
+        remade.setScheduledFor(new Date());
+
+        assertNotSame(webhook, remade);
+        assertEquals(webhook,remade);
     }
 
 }
