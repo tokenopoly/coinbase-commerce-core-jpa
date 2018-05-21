@@ -34,7 +34,7 @@ public class PaymentPK implements PaymentIdentifier, Serializable {
     private String transactionId;
 
     @SuppressWarnings("unused")
-    public static PaymentPK newPaymentId(PaymentIdentifier payment) {
+    public static PaymentPK newPaymentId(final PaymentIdentifier payment) {
         return new PaymentPK(payment.getNetwork(), payment.getTransactionId());
     }
 
