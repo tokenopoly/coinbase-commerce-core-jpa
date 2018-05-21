@@ -83,7 +83,7 @@ CREATE TABLE coinbase.payment_values (
   , amount          DECIMAL(24, 6)
   , currency        VARCHAR
   , PRIMARY KEY (network, transaction_id, type)
-  , FOREIGN KEY (network, transaction_id) REFERENCES coinbase.payment(network, transaction_id)
+--  , FOREIGN KEY (network, transaction_id) REFERENCES coinbase.payment(network, transaction_id)
   );
 
 CREATE TABLE coinbase.charge_payment (
@@ -91,7 +91,7 @@ CREATE TABLE coinbase.charge_payment (
   , network         VARCHAR       NOT NULL
   , transaction_id  VARCHAR       NOT NULL
   , PRIMARY KEY (charge_code, network, transaction_id)
-  , FOREIGN KEY (network, transaction_id) REFERENCES coinbase.payment(network, transaction_id)
+--  , FOREIGN KEY (network, transaction_id) REFERENCES coinbase.payment(network, transaction_id)
 
   , CONSTRAINT unq_payment      UNIQUE (network, transaction_id)
   );
