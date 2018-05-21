@@ -133,16 +133,22 @@ public class Charge implements Serializable, Comparable<Charge> {
     @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(@NotNull Charge o) {
-        return ComparisonChain.start()
-            .compare(this.confirmedAt, o.confirmedAt, CompareUtils.DateNaturalNullsLast)
-            .compare(this.expiresAt, o.expiresAt, CompareUtils.DateNaturalNullsLast)
-            .compare(this.createdAt, o.createdAt, CompareUtils.DateNaturalNullsLast)
+        if (o == null) {
+            return -1;
+        } else if (this == o) {
+            return 0;
+        } else {
+            return ComparisonChain.start()
+                .compare(this.confirmedAt, o.confirmedAt, CompareUtils.DateNaturalNullsLast)
+                .compare(this.expiresAt, o.expiresAt, CompareUtils.DateNaturalNullsLast)
+                .compare(this.createdAt, o.createdAt, CompareUtils.DateNaturalNullsLast)
 
-            // If we need we can do this in separate steps: if we don't have an ordering here,
-            // then take the most recent Status records for each Charge and use those.
+                // If we need we can do this in separate steps: if we don't have an ordering here,
+                // then take the most recent Status records for each Charge and use those.
 
-            .compare(this.code, o.code, CompareUtils.StringNaturalNullsLast)
-            .result();
+                .compare(this.code, o.code, CompareUtils.StringNaturalNullsLast)
+                .result();
+        }
     }
 
 }

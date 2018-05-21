@@ -11,6 +11,7 @@ import com.tokenopoly.coinbridge.coinbase.commerce.util.CoinbaseTest;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -41,8 +42,16 @@ public class WebhookTest {
     
     @Test
     public void deserializeWebhookPayloadTest() {
-        Webhook webhook = deserializeWebhookPayload();
-        assertEquals(1, webhook.getEvent().getData().getPayments().size());
+        final Webhook webhook = deserializeWebhookPayload();
+        final Event event = webhook.getEvent();
+        assertEquals(Event.EventType.confirmed, event.getEventType());
+        log.trace("{}", webhook.toString());
+        final Charge charge = event.getData();
+        final Set<Payment> payments = charge.getPayments();
+        assertEquals(1, payments.size());
+        final Payment payment = payments.iterator().next();
+        assertTrue("USD".equalsIgnoreCase(payment.getLocalPrice().getCurrency()));
+        assertTrue("BTC".equalsIgnoreCase(payment.getCryptoPrice().getCurrency()));
     }
 
 }

@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/tokenopoly/coinbase-commerce-core-jpa.svg?branch=develop)](https://travis-ci.org/tokenopoly/coinbase-commerce-core-jpa)
+[![Build Status](https://travis-ci.org/tokenopoly/coinbase-commerce-core-jpa.svg?branch=develop)](https://travis-ci.org/tokenopoly/coinbase-commerce-core-jpa)  [![codecov](https://codecov.io/gh/tokenopoly/coinbase-commerce-core-jpa/branch/develop/graph/badge.svg)](https://codecov.io/gh/tokenopoly/coinbase-commerce-core-jpa)
+
 
 # coinbase-commerce-core
 
@@ -105,3 +106,4 @@ By default the package uses [Flyway](https://flywaydb.org/) to initialize a data
 If you choose to map the objects as-is, you will find corresponding `.sql` files in the `src/main/resources/db/migration` folder - the default for Flyway.  Note that these are in the source code but are excluded from the `.jar` file archive to avoid hassles from potential conflicts with a project that uses this one and also uses Flyway for DB migrations.
 
 The tests include an example of how to run Flyway "automagically" via Spring at application startup.  You are free to do so, but for production we prefer the approach of explicitly migrating the DB and have included the [Flyway Maven Plugin](https://flywaydb.org/documentation/maven/) as a convenient means of doing so.
+
