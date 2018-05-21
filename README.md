@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/tokenopoly/coinbase-commerce-core-jpa.svg?branch=develop)](https://travis-ci.org/tokenopoly/coinbase-commerce-core-jpa)
+
 # coinbase-commerce-core
 
 This module provides a Java domain model for
