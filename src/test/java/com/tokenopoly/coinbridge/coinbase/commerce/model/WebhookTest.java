@@ -6,7 +6,7 @@
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.tokenopoly.coinbridge.coinbase.commerce.util.CoinbaseTest;
+import com.tokenopoly.coinbridge.coinbase.commerce.util.CoinbaseUtilsTest;
 
 import org.junit.Test;
 
@@ -33,7 +33,7 @@ public class WebhookTest {
 
     public Webhook deserializeWebhookPayload() {
         try {
-            return objectMapper.readValue(CoinbaseTest.payload, Webhook.class);
+            return objectMapper.readValue(CoinbaseUtilsTest.payload, Webhook.class);
         } catch (IOException e) {
             e.printStackTrace();
             throw new RuntimeException("error deserializing test webhook payload", e);
