@@ -30,4 +30,6 @@ public abstract class CompareUtils {
      */
     public static final Comparator<Long> LongNaturalNullsLast = Comparator.nullsLast(Comparator.naturalOrder());
 
+    public static final Comparator<Boolean> BooleanNaturalNullsLast = Comparator.nullsLast(Comparator.naturalOrder());
+
 }
