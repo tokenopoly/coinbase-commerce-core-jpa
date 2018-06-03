@@ -8,6 +8,8 @@ package com.tokenopoly.util;
 import java.util.Comparator;
 import java.util.Date;
 
+// TODO : move to a public "foundation" package
+
 /**
  * Helper methods and objects.
  * <p>Declared abstract since there's no need to instantiate this.</p>
