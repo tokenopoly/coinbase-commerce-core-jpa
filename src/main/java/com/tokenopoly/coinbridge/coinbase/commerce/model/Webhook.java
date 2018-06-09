@@ -45,4 +45,9 @@ public class Webhook implements Serializable {
      */
     private Event event;
 
+    public Webhook(@Nonnull String id, @Nonnull Date scheduledFor) {
+        this.id = id;
+        this.scheduledFor = scheduledFor;
+    }
+
 }
