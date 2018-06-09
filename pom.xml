@@ -322,7 +322,7 @@
         <version>${flyway.version}</version>
         <configuration>
           <schemas>
-            <schema>coinbridge</schema>
+            <schema>coinbase</schema>
           </schemas>
         </configuration>
         <dependencies>
