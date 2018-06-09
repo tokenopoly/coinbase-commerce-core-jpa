@@ -1,11 +1,5 @@
-local.txt
+deploy/
 
-*.xml.x
-
-application-dev.properties
-flyway-dev.conf
-
-coinbase-commerce-core.iml
 ccc.iml
 
 ### Windows template
