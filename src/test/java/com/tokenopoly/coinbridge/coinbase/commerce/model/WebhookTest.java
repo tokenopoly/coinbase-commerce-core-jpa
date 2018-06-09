@@ -68,4 +68,27 @@ public class WebhookTest {
         assertEquals(webhook,remade);
     }
 
+    @Test
+    public void coverage() {
+        final Webhook wh = new Webhook();
+        final Webhook wh2 = new Webhook();
+
+        final Date now = new Date();
+
+        wh.setId("123");
+        wh2.setId(wh.getId());
+        assertEquals(wh, wh2);
+        wh2.setId("456");
+        assertNotEquals(wh, wh2);
+
+        wh.setScheduledFor(now);
+        wh2.setScheduledFor(now);
+        assertEquals(now, wh.getScheduledFor());
+
+        wh.setAttemptNumber(2);
+        wh.setEvent(null);
+        assertEquals(2L, wh.getAttemptNumber().longValue());
+        assertNull(wh.getEvent());
+
+    }
 }
