@@ -16,6 +16,22 @@ import static org.junit.Assert.*;
  */
 public class ChargeTest {
 
+    @SuppressWarnings("SimplifiableJUnitAssertion")
+    @Test
+    public void coverage() {
+        final Charge c1 = new Charge();
+        c1.setCode("ABC123RF");
+
+        assertNotEquals(0, c1.hashCode());
+
+        final Charge c2 = new Charge();
+        c1.setCode(c1.getCode());
+
+        assertEquals(c1, c2);
+        assertTrue(c1.equals(c2));
+    }
+
+    @SuppressWarnings("UnnecessaryLocalVariable")
     @Test
     public void compareTo() {
         final Charge c1 = new Charge();
