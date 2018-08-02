@@ -18,7 +18,8 @@ If you do a full independent mapping that way, please feel free to contribute th
 
 ###  Sample usage in a Spring project
 
-* First expose the CoinbaseUtils as a Spring bean via the `@Component` annotation.
+* First expose a singleton that implements CoinbaseUtils as a Spring bean, for example via the `@Component` annotation 
+as shown here:
 
 ```java
 package com.tokenopoly.coinbridge.coinbase.spring;
@@ -46,7 +47,7 @@ public class CoinbaseComponent extends CoinbaseUtils {
 }
 ```
 
-* Then implement a webhook handler that extracts the `Charge` payload object and process as needed.
+* Then implement a webhook handler that extracts the `Charge` payload object and process it as needed.
 
 ```java
 @RestController
