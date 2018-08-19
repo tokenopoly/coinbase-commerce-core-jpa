@@ -1,11 +1,6 @@
-
-*.xml.x
-
-application-dev.properties
-flyway-dev.conf
+deploy/
 
 coinbase-commerce-core.iml
-ccc.iml
 
 ### Windows template
 # Windows thumbnail cache files

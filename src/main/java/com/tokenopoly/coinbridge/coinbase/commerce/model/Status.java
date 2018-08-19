@@ -53,12 +53,18 @@ public class Status implements Serializable, Comparable<Status> {
     @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(@NotNull Status o) {
-        return ComparisonChain.start()
-            .compare(this.time, o.time, CompareUtils.DateNaturalNullsLast)
-            .compare(this.status, o.status, StatusNaturalNullsLast)
-            .compare(this.context, o.context, ContextNaturalNullsLast)
-            .compare(this.payment, o.payment, PaymentIdentifier.PaymentIdentifierNaturalNullsLast)
-            .result();
+        if (o == null) {
+            return -1;
+        } else if (this == o) {
+            return 0;
+        } else {
+            return ComparisonChain.start()
+                .compare(this.time, o.time, CompareUtils.DateNaturalNullsLast)
+                .compare(this.status, o.status, StatusNaturalNullsLast)
+                .compare(this.context, o.context, ContextNaturalNullsLast)
+                .compare(this.payment, o.payment, PaymentIdentifier.PaymentIdentifierNaturalNullsLast)
+                .result();
+        }
     }
 
     public enum StatusValue {

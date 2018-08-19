@@ -25,7 +25,7 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(SpringRunner.class)
 @ActiveProfiles({"test"})
-@SpringBootTest
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ContextConfiguration(classes = DefaultTestApp.class)
 public class ChargeDaoTest {
 

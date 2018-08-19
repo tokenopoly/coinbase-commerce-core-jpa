@@ -46,8 +46,8 @@ import lombok.NoArgsConstructor;
 @JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
 
 @Entity
-@Table(schema = "coinbase")
 @IdClass(PaymentPK.class)
+@Table(schema = "coinbase")
 @DynamicUpdate
 @SelectBeforeUpdate
 

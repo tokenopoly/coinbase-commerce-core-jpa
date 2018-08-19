@@ -26,10 +26,16 @@ public interface PaymentIdentifier extends Comparable<PaymentIdentifier> {
     @SuppressWarnings("NullableProblems")
     @Override
     default int compareTo(PaymentIdentifier o) {
-        return ComparisonChain.start()
-            .compare(this.getNetwork(), o.getNetwork(), CompareUtils.StringNaturalNullsLast)
-            .compare(this.getTransactionId(), o.getTransactionId(), CompareUtils.StringNaturalNullsLast)
-            .result();
+        if (o == null) {
+            return -1;
+        } else if (this == o) {
+            return 0;
+        } else {
+            return ComparisonChain.start()
+                .compare(this.getNetwork(), o.getNetwork(), CompareUtils.StringNaturalNullsLast)
+                .compare(this.getTransactionId(), o.getTransactionId(), CompareUtils.StringNaturalNullsLast)
+                .result();
+        }
     }
 
 }
