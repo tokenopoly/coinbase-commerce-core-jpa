@@ -12,6 +12,8 @@ spring:
     baselineOnMigrate: true
     schemas:
       - coinbase
+    locations:
+      - ccc/db/migration
 
   jpa:
     open-in-view: false

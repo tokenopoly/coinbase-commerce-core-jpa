@@ -274,13 +274,20 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>db/**</exclude>
-            <exclude>config/**</exclude>
-            <exclude>**/*.xml.x</exclude>
-          </excludes>
-        </configuration>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+            <configuration>
+              <classifier>nosql</classifier>
+              <excludes>
+                <exclude>ccc/db/**</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
       </plugin>
 
       <plugin>
@@ -308,9 +315,13 @@
         <artifactId>flyway-maven-plugin</artifactId>
         <version>${flyway.version}</version>
         <configuration>
+          <baselineOnMigrate>true</baselineOnMigrate>
           <schemas>
             <schema>coinbase</schema>
           </schemas>
+          <locations>
+            <location>ccc/db/migration</location>
+          </locations>
         </configuration>
         <dependencies>
           <dependency>
@@ -319,23 +330,6 @@
             <version>${postgresql.version}</version>
           </dependency>
         </dependencies>
-      </plugin>
-      
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
-        <version>${spring-boot.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>repackage</goal>
-            </goals>
-            <configuration>
-              <attach>false</attach>
-              <skip>true</skip>
-            </configuration>
-          </execution>
-        </executions>
       </plugin>
 
       <plugin>
