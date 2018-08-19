@@ -20,7 +20,6 @@
     <connection>scm:git:git@github.com:tokenopoly/coinbase-commerce-core-jpa.git</connection>
     <developerConnection>scm:git:git@github.com:tokenopoly/coinbase-commerce-core-jpa.git</developerConnection>
     <url>https://github.com/tokenopoly/coinbase-commerce-core-jpa</url>
-    <tag>coinbase-commerce-core-0.2.3-beta</tag>
   </scm>
 
   <licenses>
@@ -54,6 +53,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <!--<project.scm.id>github</project.scm.id>-->
 
     <java.version>1.8</java.version>
 
@@ -343,8 +344,8 @@
             During release:perform, enable the "ossrh" profile
            -->
           <releaseProfiles>ossrh</releaseProfiles>
-          <localCheckout>true</localCheckout>
-          <pushChanges>false</pushChanges>
+          <!--<localCheckout>true</localCheckout>-->
+          <!--<pushChanges>false</pushChanges>-->
         </configuration>
       </plugin>
 
