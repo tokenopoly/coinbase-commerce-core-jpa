@@ -9,7 +9,7 @@
 
   <groupId>com.tokenopoly.coinbridge</groupId>
   <artifactId>coinbase-commerce-core</artifactId>
-  <version>0.2.5-beta-SNAPSHOT</version>
+  <version>0.2.5-beta</version>
   <packaging>jar</packaging>
 
   <name>coinbase-commerce-core-jpa</name>
@@ -20,6 +20,7 @@
     <connection>scm:git:git@github.com:tokenopoly/coinbase-commerce-core-jpa.git</connection>
     <developerConnection>scm:git:git@github.com:tokenopoly/coinbase-commerce-core-jpa.git</developerConnection>
     <url>https://github.com/tokenopoly/coinbase-commerce-core-jpa</url>
+    <tag>coinbase-commerce-core-0.2.5-beta</tag>
   </scm>
 
   <licenses>
