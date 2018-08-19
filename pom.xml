@@ -9,7 +9,7 @@
 
   <groupId>com.tokenopoly.coinbridge</groupId>
   <artifactId>coinbase-commerce-core</artifactId>
-  <version>0.2.3-beta</version>
+  <version>0.2.4-beta-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>coinbase-commerce-core-jpa</name>
@@ -170,7 +170,6 @@
       <build>
         <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
             <source>${java.version}</source>
@@ -179,7 +178,6 @@
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <executions>
             <execution>
@@ -192,7 +190,6 @@
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <executions>
             <execution>
@@ -204,16 +201,23 @@
           </executions>
         </plugin>
 
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <configuration>
-            <excludes>
-              <exclude>db/**</exclude>
-              <exclude>config/**</exclude>
-            </excludes>
-          </configuration>
-        </plugin>
+          <plugin>
+            <artifactId>maven-jar-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+                <configuration>
+                  <classifier>nosql</classifier>
+                  <excludes>
+                    <exclude>ccc/db/**</exclude>
+                  </excludes>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
 
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
