@@ -4,14 +4,12 @@
   ~ All rights not explicitly granted in the LICENSE attached to this project are hereby reserved.
   -->
 
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.tokenopoly.coinbridge</groupId>
   <artifactId>coinbase-commerce-core</artifactId>
-  <version>0.2.3-beta</version>
+  <version>0.2.6-beta-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>coinbase-commerce-core-jpa</name>
@@ -22,6 +20,7 @@
     <connection>scm:git:git@github.com:tokenopoly/coinbase-commerce-core-jpa.git</connection>
     <developerConnection>scm:git:git@github.com:tokenopoly/coinbase-commerce-core-jpa.git</developerConnection>
     <url>https://github.com/tokenopoly/coinbase-commerce-core-jpa</url>
+    <tag>HEAD</tag>
   </scm>
 
   <licenses>
@@ -56,13 +55,15 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+    <!--<project.scm.id>github</project.scm.id>-->
+
     <java.version>1.8</java.version>
 
-    <spring-boot.version>2.0.3.RELEASE</spring-boot.version>
+    <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
     
-    <guava.version>24.1-jre</guava.version>
+    <guava.version>26.0-jre</guava.version>
     <lombok.version>1.16.20</lombok.version>
-    <postgresql.version>42.2.2</postgresql.version>
+    <postgresql.version>42.2.4</postgresql.version>
 
     <flyway.version>5.0.7</flyway.version>
     <h2.version>1.4.197</h2.version>
@@ -171,7 +172,6 @@
       <build>
         <plugins>
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
           <configuration>
             <source>${java.version}</source>
@@ -180,7 +180,6 @@
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-source-plugin</artifactId>
           <executions>
             <execution>
@@ -193,7 +192,6 @@
         </plugin>
 
         <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
           <executions>
             <execution>
@@ -205,16 +203,23 @@
           </executions>
         </plugin>
 
-        <plugin>
-          <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-jar-plugin</artifactId>
-          <configuration>
-            <excludes>
-              <exclude>db/**</exclude>
-              <exclude>config/**</exclude>
-            </excludes>
-          </configuration>
-        </plugin>
+          <plugin>
+            <artifactId>maven-jar-plugin</artifactId>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>jar</goal>
+                </goals>
+                <configuration>
+                  <classifier>nosql</classifier>
+                  <excludes>
+                    <exclude>ccc/db/**</exclude>
+                  </excludes>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
 
         <plugin>
           <groupId>org.sonatype.plugins</groupId>
@@ -340,6 +345,8 @@
             During release:perform, enable the "ossrh" profile
            -->
           <releaseProfiles>ossrh</releaseProfiles>
+          <!--<localCheckout>true</localCheckout>-->
+          <!--<pushChanges>false</pushChanges>-->
         </configuration>
       </plugin>
 
@@ -393,6 +400,5 @@
       </plugins>
     </pluginManagement>
   </build>
-
 
 </project>
