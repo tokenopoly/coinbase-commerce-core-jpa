@@ -38,14 +38,12 @@ CREATE TABLE coinbase.charge_addresses (
   , PRIMARY KEY (charge_code, network)
   );
 
-
 CREATE TABLE coinbase.charge_metadata (
     charge_code   VARCHAR         NOT NULL    REFERENCES coinbase.charge(code)
-  , key           VARCHAR         NOT NULL
-  , value         VARCHAR
+  , key        VARCHAR            NOT NULL
+  , value      VARCHAR
   , PRIMARY KEY (charge_code, key)
   );
-
 
 CREATE TABLE coinbase.charge_pricing (
     charge_code   VARCHAR         NOT NULL    REFERENCES coinbase.charge(code)

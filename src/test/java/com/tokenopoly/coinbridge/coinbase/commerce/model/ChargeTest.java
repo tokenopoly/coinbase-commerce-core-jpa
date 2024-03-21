@@ -66,8 +66,5 @@ public class ChargeTest {
         assertEquals(0, c1.compareTo(c3));
 
         assertNotEquals(c1, c2);
-
-
-
     }
 }
