@@ -5,10 +5,10 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -18,8 +18,8 @@ public class PaymentPKTest {
     private PaymentPK p1;
     private PaymentPK p2;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() {
         p1 = new PaymentPK("bitcoin", "afaketransactionnonid");
         p2 = PaymentPK.newPaymentId(p1);
     }

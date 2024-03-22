@@ -5,12 +5,12 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -19,8 +19,8 @@ public class PriceTest {
 
     private Price price;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() {
         price = new Price(BigDecimal.valueOf(100), "USD");
     }
 

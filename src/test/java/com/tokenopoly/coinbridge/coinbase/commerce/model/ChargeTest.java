@@ -5,11 +5,11 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.util.Date;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -66,8 +66,5 @@ public class ChargeTest {
         assertEquals(0, c1.compareTo(c3));
 
         assertNotEquals(c1, c2);
-
-
-
     }
 }

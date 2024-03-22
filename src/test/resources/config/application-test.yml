@@ -2,7 +2,7 @@
 spring:
 
   datasource:
-    url: jdbc:h2:mem:test;MODE=PostgreSQL;INIT=CREATE SCHEMA IF NOT EXISTS COINBASE;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:test;MODE=PostgreSQL;INIT=CREATE SCHEMA IF NOT EXISTS COINBASE;DB_CLOSE_ON_EXIT=FALSE;NON_KEYWORDS=KEY,TIME,VALUE,TYPE
     username: sa
 
 # This will test our flyway (SQL) DDL scripts.
