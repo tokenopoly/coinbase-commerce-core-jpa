@@ -5,12 +5,12 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * gratuitous coverage test
@@ -19,7 +19,7 @@ public class CheckoutTest {
 
     private Checkout checkingThisOut;
 
-    @Before
+    @BeforeEach
     public void setUp() {
         checkingThisOut = new Checkout();
         checkingThisOut.setId("ABC123");

@@ -10,20 +10,17 @@ import com.tokenopoly.coinbridge.coinbase.commerce.model.Charge;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.Webhook;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.WebhookTest;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  *
  */
-@RunWith(SpringRunner.class)
 @ActiveProfiles({"test"})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ContextConfiguration(classes = DefaultTestApp.class)
@@ -32,7 +29,7 @@ public class ChargeDaoTest {
     @Autowired
     private ChargeDao dao;
 
-    private WebhookTest webhookTest = new WebhookTest();
+    private final WebhookTest webhookTest = new WebhookTest();
 
     @Test
     public void testPersistFromWebhook() {

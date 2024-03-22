@@ -14,27 +14,24 @@ import com.tokenopoly.coinbridge.coinbase.commerce.model.PaymentPK;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.Price;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.Status;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  *
  */
-@RunWith(SpringRunner.class)
 @ActiveProfiles({"test"})
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.NONE)
 @ContextConfiguration(classes = DefaultTestApp.class)
@@ -46,8 +43,8 @@ public class PaymentDaoTest {
     private PaymentPK paymentId;
     private Payment payment;
 
-    @Before
-    public void setUp() throws Exception {
+    @BeforeEach
+    public void setUp() {
 
         paymentId = new PaymentPK("test", "fake");
 
@@ -86,7 +83,7 @@ public class PaymentDaoTest {
         assertEquals(payment, p2);
 
         assertEquals("USD", p2.getValue().get("local").getCurrency());
-        assertTrue(BigDecimal.valueOf(8000).compareTo(p2.getValue().get("local").getAmount()) == 0);
+        assertEquals(0, BigDecimal.valueOf(8000).compareTo(p2.getValue().get("local").getAmount()));
     }
 
     @Test
@@ -100,12 +97,13 @@ public class PaymentDaoTest {
     @Test
     public void testUpdate() {
         Optional<Payment> optP2 = dao.findById(paymentId);
+        @SuppressWarnings("OptionalGetWithoutIsPresent")
         Payment p2 = optP2.get();
 
         p2.getValue().put("local", new Price(BigDecimal.valueOf(10000), "USD"));
         p2 = dao.saveAndFlush(p2);
 
-        assertTrue(BigDecimal.valueOf(10000).compareTo(p2.getValue().get("local").getAmount()) == 0);
+        assertEquals(0, BigDecimal.valueOf(10000).compareTo(p2.getValue().get("local").getAmount()));
     }
 
 
