@@ -8,7 +8,7 @@ package com.tokenopoly.coinbridge.coinbase.commerce.model;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tokenopoly.coinbridge.coinbase.commerce.util.CoinbaseUtilsTest;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Date;
@@ -16,7 +16,7 @@ import java.util.Set;
 
 import lombok.extern.slf4j.Slf4j;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  *
@@ -46,7 +46,7 @@ public class WebhookTest {
     final Webhook webhook = deserializeWebhookPayload();
     final Event event = webhook.getEvent();
     assertEquals(Event.EventType.confirmed, event.getEventType());
-    log.trace("{}", webhook.toString());
+    log.trace("{}", webhook);
     final Charge charge = event.getData();
     final Set<Payment> payments = charge.getPayments();
     assertEquals(1, payments.size());
