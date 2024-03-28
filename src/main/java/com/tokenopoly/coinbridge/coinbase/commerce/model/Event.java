@@ -6,24 +6,25 @@
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-
-import java.io.Serializable;
-import java.util.Date;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
  * The event which triggered the webhook callback.  See the Coinbase Commerce API docs for details.
  */
 @Data
 @EqualsAndHashCode(of = {"id"})
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @SuppressWarnings("unused")
 public class Event implements Serializable {
     
+    @Serial
     private static final long serialVersionUID = 3205413059133644670L;
 
     public static final String Charge_Type_Prefix = "charge:";

@@ -5,16 +5,15 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-
-import java.io.Serializable;
-
-import javax.persistence.Embeddable;
-
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * The concrete implementation of {@link PaymentIdentifier} for persistence purposes.
@@ -23,11 +22,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 @Embeddable
 public class PaymentPK implements PaymentIdentifier, Serializable {
 
+    @Serial
     private static final long serialVersionUID = 6917567371063229215L;
 
     private String network;

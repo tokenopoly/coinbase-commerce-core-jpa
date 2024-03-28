@@ -9,7 +9,6 @@ import com.tokenopoly.coinbridge.coinbase.DefaultTestApp;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.Charge;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.Webhook;
 import com.tokenopoly.coinbridge.coinbase.commerce.model.WebhookTest;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
