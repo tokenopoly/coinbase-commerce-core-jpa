@@ -7,14 +7,12 @@ package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.tokenopoly.coinbridge.coinbase.commerce.util.CoinbaseUtilsTest;
-
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.Date;
 import java.util.Set;
-
-import lombok.extern.slf4j.Slf4j;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -32,6 +30,7 @@ public class WebhookTest {
   }
 
 
+  @SuppressWarnings("CallToPrintStackTrace")
   public Webhook deserializeWebhookPayload() {
     try {
       return objectMapper.readValue(CoinbaseUtilsTest.payload, Webhook.class);

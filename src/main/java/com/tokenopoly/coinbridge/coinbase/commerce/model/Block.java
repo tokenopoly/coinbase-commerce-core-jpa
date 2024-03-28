@@ -6,17 +6,16 @@
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-
-import java.io.Serializable;
-
-import javax.persistence.Embeddable;
-
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.io.Serial;
+import java.io.Serializable;
 
 /**
  * Attributes of a Payment that correspond to the blockchain Block in which the payment transaction is recorded.
@@ -28,12 +27,13 @@ import lombok.NoArgsConstructor;
 @Builder
 
 // Jackson annotation(s)
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 // Hibernate & JPA annotation(s)
 @Embeddable
 public class Block implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = -3043589997739991990L;
 
     private long height;

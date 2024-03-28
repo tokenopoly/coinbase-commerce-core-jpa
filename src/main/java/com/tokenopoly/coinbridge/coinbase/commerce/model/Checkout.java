@@ -5,17 +5,16 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-
-import java.io.Serializable;
-import java.util.List;
-
-import javax.annotation.Nonnull;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import javax.annotation.Nonnull;
+import java.io.Serial;
+import java.io.Serializable;
+import java.util.List;
 
 /**
  * Models a Checkout to handle the case where a {@link Charge} was created from one.
@@ -23,10 +22,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @SuppressWarnings("WeakerAccess")
 public class Checkout implements Serializable {
 
+    @Serial
     private static final long serialVersionUID = 4136748974630732575L;
 
     @Nonnull

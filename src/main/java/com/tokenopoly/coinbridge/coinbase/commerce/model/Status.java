@@ -5,34 +5,34 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import com.google.common.collect.ComparisonChain;
-
-import com.tokenopoly.util.CompareUtils;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import com.google.common.collect.ComparisonChain;
+import com.tokenopoly.util.CompareUtils;
+import jakarta.annotation.Nonnull;
+import jakarta.persistence.Embeddable;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.Date;
-
-import javax.annotation.Nonnull;
-import javax.persistence.Embeddable;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.validation.constraints.NotNull;
-
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  *
  */
 @Data
 @NoArgsConstructor
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @Embeddable
 @SuppressWarnings("unused")
 public class Status implements Serializable, Comparable<Status> {
+
+    @Serial
     private static final long serialVersionUID = 656845959161022248L;
 
     public static final Comparator<StatusValue> StatusNaturalNullsLast =
@@ -50,7 +50,6 @@ public class Status implements Serializable, Comparable<Status> {
 
     private PaymentPK payment;
 
-    @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(@NotNull Status o) {
         if (o == null) {

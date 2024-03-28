@@ -6,14 +6,8 @@
 package com.tokenopoly.coinbridge.coinbase.commerce.dao;
 
 import com.google.common.collect.ImmutableMap;
-
 import com.tokenopoly.coinbridge.coinbase.DefaultTestApp;
-import com.tokenopoly.coinbridge.coinbase.commerce.model.Block;
-import com.tokenopoly.coinbridge.coinbase.commerce.model.Payment;
-import com.tokenopoly.coinbridge.coinbase.commerce.model.PaymentPK;
-import com.tokenopoly.coinbridge.coinbase.commerce.model.Price;
-import com.tokenopoly.coinbridge.coinbase.commerce.model.Status;
-
+import com.tokenopoly.coinbridge.coinbase.commerce.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

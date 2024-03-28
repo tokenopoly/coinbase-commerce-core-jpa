@@ -5,43 +5,21 @@
 
 package com.tokenopoly.coinbridge.coinbase.commerce.model;
 
-import com.google.common.collect.ComparisonChain;
-
-import com.tokenopoly.util.CompareUtils;
-import com.fasterxml.jackson.databind.PropertyNamingStrategy;
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-
+import com.google.common.collect.ComparisonChain;
+import com.tokenopoly.util.CompareUtils;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.annotations.SelectBeforeUpdate;
-import org.hibernate.annotations.SortNatural;
 
+import java.io.Serial;
 import java.io.Serializable;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
-import javax.persistence.ElementCollection;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.MapKeyColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
-import javax.persistence.Table;
-import javax.persistence.Transient;
-import javax.validation.constraints.NotNull;
-
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import java.util.*;
 
 /**
  * Represents a Coinbase Commerce Charge object, per that API.
@@ -55,15 +33,15 @@ import lombok.EqualsAndHashCode;
 @EqualsAndHashCode(of = {"code"})
 
 // Jackson annotation(s)
-@JsonNaming(PropertyNamingStrategy.SnakeCaseStrategy.class)
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 
 // Hibernate & JPA annotation(s)
 @Entity
 @Table(schema = "coinbase")  // TODO : replace me with .hbm.xml file(s)
 @DynamicUpdate
-@SelectBeforeUpdate
 public class Charge implements Serializable, Comparable<Charge> {
 
+    @Serial
     private static final long serialVersionUID = -5689772303429773407L;
 
     @Id
@@ -93,7 +71,6 @@ public class Charge implements Serializable, Comparable<Charge> {
     private Checkout checkout;
 
     @ElementCollection(fetch = FetchType.EAGER)
-    @SortNatural
     @OrderBy("time, status, context")
     @CollectionTable(schema = "coinbase")
     private List<Status> timeline;
@@ -130,7 +107,6 @@ public class Charge implements Serializable, Comparable<Charge> {
     @CollectionTable(schema = "coinbase")
     private Map<String, String> addresses;
 
-    @SuppressWarnings("NullableProblems")
     @Override
     public int compareTo(@NotNull Charge o) {
         if (o == null) {

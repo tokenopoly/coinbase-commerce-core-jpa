@@ -6,15 +6,14 @@
 package com.tokenopoly.coinbridge.coinbase.commerce.util;
 
 import com.google.common.io.BaseEncoding;
-
-import java.nio.charset.Charset;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
-
-import lombok.extern.slf4j.Slf4j;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Helper class that provides signature validation that works with Coinbase Commerce's
@@ -25,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 public class CoinbaseUtils {
 
     private static final String SIGNING_ALGORITHM = "HmacSHA256";
-    private static final Charset UTF8 = Charset.forName("UTF8");
+    private static final Charset UTF8 = StandardCharsets.UTF_8;
 
     private final Mac sha256Hmac;
     private final BaseEncoding signatureEncoding;
